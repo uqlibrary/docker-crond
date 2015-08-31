@@ -6,4 +6,4 @@ RUN \
 
 COPY etc/crontab /etc/crontab
 
-CMD /usr/sbin/crond -n -s
+CMD /usr/sbin/crond -n -x bit
