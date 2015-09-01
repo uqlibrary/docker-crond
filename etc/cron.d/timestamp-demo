@@ -1,0 +1,2 @@
+# Demo entry (replace this crontab with real one using volume mount at runtime)
+* * * * * root /bin/date > /tmp/cron-timestamp.txt ; echo -n "Echoing timestamp file (/tmp/cron-timestamp.txt): " ; cat /tmp/cron-timestamp.txt
