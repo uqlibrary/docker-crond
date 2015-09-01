@@ -7,18 +7,19 @@ This repository contains a Dockerfile of Crond (Cronie) for Docker's automated b
 
 1. Install [Docker](https://www.docker.com/).
 
-2. Download the [automated build](https://registry.hub.docker.com/u/uqlibrary/docker-crond/) from the public [Docker Hub Registry](https://registry.hub.docker.com/): `docker pull uqlibrary/docker-crond`
+2. Download the [automated build](https://registry.hub.docker.com/u/uqlibrary/docker-crond/) from the public [Docker Hub Registry](https://registry.hub.docker.com/): 
+   `docker pull uqlibrary/docker-crond:2`
 
-   (or, you can build an image from Dockerfile: `docker build -t uqlibrary/docker-crond .)
+   (or, you can build an image from Dockerfile: `docker build -t uqlibrary/docker-crond:2 .)
 
 ### Usage
 
-1. Create your own crontab file to replace the demo template crontab in image
+1. Create your own crontab file to replace the demo template crontab in image (ensure that the file ownership is `root:root` and permissions is `644`)
 
 2. Start the container (with custom crontab included via volume mount):
 
     ```sh
-    docker run uqlibrary/docker-crond -v `pwd`/crontab:/etc/crontab
+    docker run -d -v <crontab>:/etc/crontab uqlibrary/docker-crond:2
     ```
 
 All reporting that would normally go to email will be sent to syslog and can be seen using `docker logs <container>`
