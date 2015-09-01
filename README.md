@@ -19,17 +19,21 @@ This repository contains a Dockerfile of Crond (Cronie) for Docker's automated b
 
 1. Create a cron.d directory and place your own crontab file(s) inside it (ensure that ownership is `root:root` and file permissions are `644`)
 
-    ```sh
-    mkdir cron.d
-    vi ./cron.d/mytestjob
-    sudo chmod -R g-w ./cron.d
-    sudo chown -R root:root ./cron.d
-    ```
+   ```sh
+   mkdir cron.d
+   vi ./cron.d/mytestjob
+   sudo chmod -R g-w ./cron.d
+   sudo chown -R root:root ./cron.d
+   ```
 
 2. Start the container (with custom crontab included via volume mount):
 
-    ```sh
-    docker run -d -v ./cron.d:/etc/cron.d uqlibrary/docker-crond:3
-    ```
+   ```sh
+   docker run -d -v ./cron.d:/etc/cron.d uqlibrary/docker-crond:3
+   ```
 
-All reporting that would normally go to email will be sent to syslog and can be seen using `docker logs -f <container>`
+3. All job outputs that would normally go to email is being caught by debug output and will be in `docker logs`
+
+   ```sh
+   docker logs -f <container>
+   ```
