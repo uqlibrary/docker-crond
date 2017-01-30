@@ -4,16 +4,17 @@ docker-crond
 This repository contains a Dockerfile of Crond (Cronie) for Docker's automated build published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
 
 ### Installation
+(Replace "TAG" with the most recent tagged release image)
 
 1. Install [Docker](https://www.docker.com/).
 
 2. Download the [automated build](https://registry.hub.docker.com/u/uqlibrary/docker-crond/) from the public [Docker Hub Registry](https://registry.hub.docker.com/): 
 
    ```sh
-   docker pull uqlibrary/docker-crond:6
+   docker pull uqlibrary/docker-crond:TAG
    ```
 
-   (or, you can build an image from Dockerfile: `docker build -t uqlibrary/docker-crond:6` .)
+   (or, you can build an image from Dockerfile: `docker build -t uqlibrary/docker-crond:TAG` .)
 
 ### Usage
 
@@ -29,7 +30,7 @@ This repository contains a Dockerfile of Crond (Cronie) for Docker's automated b
 2. Start the container (with custom crontab included via volume mount):
 
    ```sh
-   docker run -d -v ./cron.d:/etc/cron.d uqlibrary/docker-crond:6
+   docker run -d -v ./cron.d:/etc/cron.d uqlibrary/docker-crond:TAG
    ```
 
 3. All job outputs that would normally go to email is being caught by debug output and will be in `docker logs`
