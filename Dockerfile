@@ -1,4 +1,4 @@
-FROM uqlibrary/docker-base:12
+FROM uqlibrary/docker-base:13
 
 RUN \
  yum install -y cronie && \
