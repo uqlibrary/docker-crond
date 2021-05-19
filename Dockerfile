@@ -1,4 +1,4 @@
-FROM uqlibrary/centos:191018
+FROM uqlibrary/centos:210511
 
 RUN \
  yum install -y cronie && \
